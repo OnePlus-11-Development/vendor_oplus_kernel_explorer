@@ -5,7 +5,10 @@ $(warning explorer makefile should only work on QCOM platform)
 M=$(PWD)
 EXPLORER_ROOT=$(KERNEL_SRC)/$(M)
 
+KBUILD_OPTIONS += MODNAME=explorer
+KBUILD_OPTIONS += BOARD_PLATFORM=$(TARGET_BOARD_PLATFORM)
 KBUILD_OPTIONS := EXPLORER_ROOT=$(EXPLORER_ROOT)
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS=$(ANDROID_BUILD_TOP)/out/vendor/qcom/opensource/camera-kernel/Module.symvers
 
 all: modules
 
